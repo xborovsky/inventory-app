@@ -22,6 +22,10 @@ export class ProductListComponent implements OnInit {
     return this.productService.getProducts(currentSections);
   }
 
+  addItemToCart(item:Product):void {
+    item.setTotalItems(item.getTotalItems() - 1);
+  }
+
   private getCurrentSections(url:string):string[] {
     var result = url.split('/');
     result.shift(); // empty string

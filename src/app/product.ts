@@ -5,6 +5,8 @@ export class Product {
     private iconSrc:string;
     private sku:string;
     private section:string[];
+    
+    private totalItems:number;
 
     constructor() {}
 
@@ -54,6 +56,14 @@ export class Product {
 
     public setSection(section:string[]) {
         this.section = section;
+    }
+
+    public getTotalItems():number {
+        return this.totalItems;
+    }
+
+    public setTotalItems(totalItems:number):void {
+        this.totalItems = totalItems;
     }
 
     public getFullPathFromSections(currentSection:string):string {

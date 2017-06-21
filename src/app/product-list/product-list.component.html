@@ -9,9 +9,11 @@
       <ul class="breadcrumb">
         <li *ngFor="let section of product.getSection();"><a [routerLink]="[product.getFullPathFromSections(section)]">{{section}}</a></li>
       </ul>
+      <span>Total items: {{ product.totalItems }}</span>
     </div>
-    <div class="col-sm-2">
+    <div class="col-sm-2 text-center">
       <span class="price">{{ product.price }} $</span>
+      <button type="button" class="btn btn-primary cart-btn" (click)="addItemToCart(product)" [disabled]="product.totalItems === 0">Add to cart</button>
     </div>
   </div>
 </div>
