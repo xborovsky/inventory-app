@@ -1,0 +1,17 @@
+<div class="product-list-item" *ngFor="let product of getProducts()">
+  <div class="row">
+    <div class="col-sm-3">
+      <img [src]="product.iconSrc" alt="{{ product.name }}" title="{{ product.name }}" class="img-responsive" />
+    </div>
+    <div class="col-sm-7">
+      <h3>{{ product.name }}</h3>
+      <span class="sku"># {{ product.sku }}</span>
+      <ul class="breadcrumb">
+        <li *ngFor="let section of product.getSection();"><a [routerLink]="[product.getFullPathFromSections(section)]">{{section}}</a></li>
+      </ul>
+    </div>
+    <div class="col-sm-2">
+      <span class="price">{{ product.price }} $</span>
+    </div>
+  </div>
+</div>

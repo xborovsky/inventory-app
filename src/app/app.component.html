@@ -1,3 +1,16 @@
-<h1>
-  {{title}}
-</h1>
+<div class="container">
+    <div class="jumbotron">
+      <h1>Inventory app</h1>
+      <p>Simple inventory app using angular 2.</p>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-3">
+          <app-menu>Loading...</app-menu>
+        </div>
+        <div class="col-sm-9">
+          <router-outlet></router-outlet>
+        </div>
+      </div>
+    </div>
+  </div>

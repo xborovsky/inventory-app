@@ -1,0 +1,37 @@
+<nav class="side-nav">
+  <ul>
+    <li><a [routerLink]="['/products']">All</a></li>
+    <li>
+      <ul>
+        <li><a [routerLink]="['/products/men']">Men</a></li>
+        <li>
+          <ul>
+            <li> <a [routerLink]="['/products/men/shoes']">Shoes</a></li>
+            <li>
+              <ul>
+                <li> <a [routerLink]="['/products/men/shoes/running_shoes']">Running shoes</a></li>
+              </ul>
+            </li>
+            <li> <a [routerLink]="['/products/men/apparel']">Apparel</a></li>
+            <li>
+              <ul>
+                <li> <a [routerLink]="['/products/men/apparel/jackets_vests']">Jackets &amp; vests</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li> <a [routerLink]="['/products/women']">Women</a></li>
+        <li>
+          <ul>
+            <li> <a [routerLink]="['/products/women/accessories']">Accessories</a></li>
+            <li>
+              <ul>
+                <li> <a [routerLink]="['/products/women/accessories/hats']">Hats</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>

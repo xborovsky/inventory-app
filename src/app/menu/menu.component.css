@@ -1,0 +1,19 @@
+.side-nav {
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    padding: 5px;
+    margin-bottom: 15px;
+}
+
+.side-nav ul {
+    list-style-type: none;
+    text-indent: -10px;
+}
+
+.side-nav ul li {
+    padding-left: 0;
+}
+
+.side-nav ul li ul {
+    padding-left: 15px;
+}
