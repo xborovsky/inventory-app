@@ -2,17 +2,19 @@ import { Injectable } from '@angular/core';
 
 import { Product } from './product';
 
+import { StockService } from './stock-service.service';
+
 @Injectable()
 export class ProductService {
 
   private products:Product[] = [];
 
-  constructor() {
-    var product1 = this.makeProduct(1, 'Black running shoes', 109.99, 'assets/img/shoes1.jpg', 'MYSHOES', ['Men', 'Shoes', 'Running shoes'], 5);
-    var product2 = this.makeProduct(2, 'Blue jacket', 238.99, 'assets/img/blue_jacket.jpg', 'NEATOJACKET', ['Men', 'Apparel', 'Jackets & Vests'], 8);
-    var product3 = this.makeProduct(3, 'Black hat', 29.99, 'assets/img/black_hat.jpg', 'NICEHAT', ['Women', 'Accessories', 'Hats'], 2);
-    var product4 = this.makeProduct(4, 'Nice running shoes', 149.99, 'assets/img/shoes2.jpg', 'NICESHOES', ['Men', 'Shoes', 'Running shoes'], 4);
-    var product5 = this.makeProduct(5, 'Bracelet', 9.99, 'assets/img/bracelet.jpg', 'MYBRACELET', ['Women', 'Accessories', 'Bracelets'], 5);
+  constructor(private stockService:StockService) {
+    var product1 = this.makeProduct(1, 'Black running shoes', 109.99, 'assets/img/shoes1.jpg', 'MYSHOES', ['Men', 'Shoes', 'Running shoes']);
+    var product2 = this.makeProduct(2, 'Blue jacket', 238.99, 'assets/img/blue_jacket.jpg', 'NEATOJACKET', ['Men', 'Apparel', 'Jackets & Vests']);
+    var product3 = this.makeProduct(3, 'Black hat', 29.99, 'assets/img/black_hat.jpg', 'NICEHAT', ['Women', 'Accessories', 'Hats']);
+    var product4 = this.makeProduct(4, 'Nice running shoes', 149.99, 'assets/img/shoes2.jpg', 'NICESHOES', ['Men', 'Shoes', 'Running shoes']);
+    var product5 = this.makeProduct(5, 'Bracelet', 9.99, 'assets/img/bracelet.jpg', 'MYBRACELET', ['Women', 'Accessories', 'Bracelets']);
 
     this.products.push(product1);
     this.products.push(product2);
@@ -39,7 +41,7 @@ export class ProductService {
     return ret;
   }
 
-  private makeProduct(id:number, name:string, price:number, iconSrc:string, sku:string, section:string[], totalItems : number):Product {
+  private makeProduct(id:number, name:string, price:number, iconSrc:string, sku:string, section:string[]):Product {
     var product = new Product();
     product.setId(id);
     product.setName(name);
@@ -47,7 +49,7 @@ export class ProductService {
     product.setIconSrc(iconSrc);
     product.setSku(sku);
     product.setSection(section);
-    product.setTotalItems(totalItems);
+    product.setTotalItems(this.stockService.checkItemsLeftOnStock(id));
     return product;
   }
 

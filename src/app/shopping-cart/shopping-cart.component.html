@@ -1,0 +1,23 @@
+<h2>Items in your shopping cart:</h2>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>&nbsp;</th>
+      <th>Item</th>
+      <th>Pcs</th>
+      <th>Price per pc</th>
+      <th>Total price</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of shoppingCart; let cnt=index">
+      <td>{{ cnt + 1 }}</td>
+      <td><img [src]="item.product.iconSrc" alt="Thumbnail" title="{{ item.product.name }}" class="img-thumbnail" width="50" height="50" /></td>
+      <td>{{ item.product.name }}</td>
+      <td>{{ item.quantity }}</td>
+      <td>{{ item.product.price }}</td>
+      <td>{{ item.product.price * item.quantity }}</td>
+    </tr>
+  </tbody>
+</table>

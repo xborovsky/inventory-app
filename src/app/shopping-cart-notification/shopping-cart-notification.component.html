@@ -1,0 +1,6 @@
+<div class="cart-container">
+  <a [routerLink]="['/shopping-cart']">
+    <img src="assets/img/shopping_cart.png" width="40" height="40" alt="Shopping cart" title="{{ getTitle() }}" />
+  </a>
+  <span class="cart-item-count" *ngIf="itemsCnt > 0">{{ itemsCnt }}</span>
+</div>

@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 
 import { Product } from './../product';
 import { ProductService } from './../product.service';
+import { ShoppingCartService } from './../shopping-cart.service';
 
 @Component({
   selector: 'app-product-list',
@@ -13,7 +14,7 @@ export class ProductListComponent implements OnInit {
 
   currentSections:string[] = [];
 
-  constructor(private productService:ProductService, private router : Router) { }
+  constructor(private productService:ProductService, private router:Router, private shoppingCartService:ShoppingCartService) { }
 
   ngOnInit() {}
 
@@ -24,6 +25,7 @@ export class ProductListComponent implements OnInit {
 
   addItemToCart(item:Product):void {
     item.setTotalItems(item.getTotalItems() - 1);
+    this.shoppingCartService.addItem(item);
   }
 
   private getCurrentSections(url:string):string[] {
