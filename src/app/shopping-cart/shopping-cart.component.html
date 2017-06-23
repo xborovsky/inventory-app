@@ -8,9 +8,13 @@
       <th>Pcs</th>
       <th>Price per pc</th>
       <th>Total price</th>
+      <th>&nbsp;</th>
     </tr>
   </thead>
   <tbody>
+    <tr *ngIf="!shoppingCart.length">
+      <td colspan="7" class="text-center">Empty shopping cart</td>
+    </tr>
     <tr *ngFor="let item of shoppingCart; let cnt=index">
       <td>{{ cnt + 1 }}</td>
       <td><img [src]="item.product.iconSrc" alt="Thumbnail" title="{{ item.product.name }}" class="img-thumbnail" width="50" height="50" /></td>
@@ -18,6 +22,7 @@
       <td>{{ item.quantity }}</td>
       <td>{{ item.product.price }}</td>
       <td>{{ item.product.price * item.quantity }}</td>
+      <td><img src="/assets/img/delete.png" class="icon clickable" (click)="removeItem(item)" alt="Delete" title="Remove from cart" /></td>
     </tr>
   </tbody>
 </table>

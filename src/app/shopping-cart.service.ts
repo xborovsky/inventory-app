@@ -24,11 +24,20 @@ export class ShoppingCartService {
     this.items.push(item);
     this.updateStorage();
     this.itemsCnt.next(this.items.length);
-
   }
 
   removeItem(item:Product):void {
-    // TODO
+    var idx = 0;
+    for (var i=0; i<this.items.length; i++) {
+      if (item['id'] === this.items[i]['id']) {
+        idx = i;
+        break;
+      }
+    }
+
+    this.items.splice(idx, 1);
+    this.updateStorage();
+    this.itemsCnt.next(this.items.length);
   }
 
   getItemsCnt():Observable<number> {

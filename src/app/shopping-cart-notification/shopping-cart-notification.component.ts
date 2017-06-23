@@ -11,9 +11,10 @@ export class ShoppingCartNotificationComponent implements OnInit {
 
   itemsCnt:number = 0;
 
-  constructor(private shoppingCartService : ShoppingCartService) {}
+  constructor(private shoppingCartService : ShoppingCartService) { }
 
   ngOnInit() {
+    console.log(this.shoppingCartService.getItemsCnt());
     this.shoppingCartService.getItemsCnt().subscribe((itemsCnt : number) => this.itemsCnt = itemsCnt);
   }
 
